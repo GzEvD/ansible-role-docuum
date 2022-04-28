@@ -1,15 +1,15 @@
 # ansible-role-docuum
 
-This roles installes [docuum](https://github.com/stepchowfun/docuum)
-
 > Docuum performs least recently used (LRU) eviction of Docker images. 🗑️
+
+This roles installes [docuum](https://github.com/stepchowfun/docuum) and configures a systemd service to start it on boot.
 
 ## Variables
 
-[TODO]
-
-- Add systemd file
-- Add override file via template (make template path overrwritable)
-- notify systemd reload
-- enable service
-- 
+| Variable                | default                     | description                                                                          |
+| ----------------------- | --------------------------- | ------------------------------------------------------------------------------------ |
+| docuum_version          | `0.21.1`                    | version of docuum                                                                    |
+| docuum_systemd_template | `systemd/docuum.service.j2` | template for systemd service                                                         |
+| docuum_threshold        | `10G`                       | threshold for docker images see [flags](https://github.com/stepchowfun/docuum#usage) |
+| docuum_keep_pattern     |                             | RegEx pattern of images to keep                                                      |
+| docuum_loglevel         | `debug`                     | See [log levels](https://github.com/stepchowfun/docuum#usage) for more options       |

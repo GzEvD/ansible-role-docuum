@@ -5,5 +5,24 @@
   get_url:
     url: "https://github.com/stepchowfun/docuum/releases/download/v{{ docuum_version }}/docuum-x86_64-unknown-linux-gnu"
     dest: "/usr/local/bin/docuum"
+    owner: root
+    group: root
     mode: "0755"
 
+- name: Create systemd docuum service
+  become: true
+  template:
+    src: "{{ docuum_systemd_template }}"
+    dest: "/etc/systemd/system/docuum.service"
+    mode: "0644"
+    owner: root
+    group: root
+  notify: reload systemd
+
+- name: Enable and start docuum service
+  become: true
+  systemd:
+    name: docuum
+    enable: true
+    masked: false
+    state: started

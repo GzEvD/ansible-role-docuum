@@ -1,3 +1,7 @@
 ---
 docuum_version: "0.21.1"
+docuum_systemd_template: "systemd/docuum.service.j2"
 
+docuum_threshold: "10G"
+docuum_keep_pattern: ""
+docuum_loglevel: "debug"
