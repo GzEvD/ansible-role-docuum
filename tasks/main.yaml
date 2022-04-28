@@ -23,6 +23,6 @@
   become: true
   systemd:
     name: docuum
-    enable: true
+    enabled: true
     masked: false
     state: started
