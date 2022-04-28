@@ -18,6 +18,7 @@
     owner: root
     group: root
   notify: reload systemd
+  register: systemd_docuum_service
 
 - name: Enable and start docuum service
   become: true
@@ -26,3 +27,9 @@
     enabled: true
     masked: false
     state: started
+
+- name: Restart docuum service is systemd_docuum_service changed
+  systemd:
+    name: docuum
+    state: restarted
+  when: systemd_docuum_service.changed
