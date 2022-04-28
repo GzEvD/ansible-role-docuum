@@ -17,7 +17,9 @@
     mode: "0644"
     owner: root
     group: root
-  notify: reload systemd
+  notify:
+    - reload systemd
+    - restart docuum
   register: systemd_docuum_service
 
 - name: Enable and start docuum service
@@ -27,9 +29,3 @@
     enabled: true
     masked: false
     state: started
-
-- name: Restart docuum service is systemd_docuum_service changed
-  systemd:
-    name: docuum
-    state: restarted
-  when: systemd_docuum_service.changed

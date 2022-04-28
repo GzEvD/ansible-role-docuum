@@ -3,3 +3,8 @@
 - name: reload systemd
   ansible.builtin.systemd:
     daemon_reload: yes
+
+- name: restart docuum
+  ansible.builtin.systemd:
+    name: docuum
+    state: restarted

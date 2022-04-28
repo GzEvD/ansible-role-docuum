@@ -2,6 +2,12 @@
 
 > Docuum performs least recently used (LRU) eviction of Docker images. 🗑️
 
+Status:
+
+[![Release and Changelog Builder](https://github.com/GzEvD/ansible-role-docuum/actions/workflows/changelog_builder.yml/badge.svg)](https://github.com/GzEvD/ansible-role-docuum/actions/workflows/changelog_builder.yml)
+
+[![Ansible Lint](https://github.com/GzEvD/ansible-role-docuum/actions/workflows/ansible-lint.yaml/badge.svg)](https://github.com/GzEvD/ansible-role-docuum/actions/workflows/ansible-lint.yaml)
+
 This roles installes [docuum](https://github.com/stepchowfun/docuum) and configures a systemd service to start it on boot.
 
 ## Variables
