@@ -1,0 +1,9 @@
+---
+
+- name: Download docuum version {{ docuum_version }}
+  become: true
+  get_url:
+    url: "https://github.com/stepchowfun/docuum/releases/download/v{{ docuum_version }}/docuum-x86_64-unknown-linux-gnu"
+    dest: "/usr/local/bin/docuum"
+    mode: "0755"
+
