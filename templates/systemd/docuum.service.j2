@@ -6,7 +6,7 @@ Wants=docker.service
 
 [Service]
 Environment="THRESHOLD={{ docuum_threshold }}" "LOG_LEVEL={{ docuum_loglevel }}"
-ExecStart=/usr/local/bin/docuum --threshold ${THRESHOLD} {% if docuum_keep_pattern is defined and docuum_keep_pattern|length > 0 +%}--keep {{ docuum_keep_pattern }}{% endif %}
+ExecStart=/usr/local/bin/docuum --threshold ${THRESHOLD} {% if docuum_keep_pattern is defined and docuum_keep_pattern|length > 0 %}--keep {{ docuum_keep_pattern }}{% endif +%}
 Restart=on-failure
 StandardOutput=syslog
 StandardError=syslog
